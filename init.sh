@@ -18,3 +18,8 @@ find . \
 
 
 yarn install
+
+./scripts/init-mongodb.sh
+./scripts/init-session-keys.sh
+
+
