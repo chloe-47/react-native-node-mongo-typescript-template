@@ -74,7 +74,7 @@ function RootNavigator() {
               <Appbar.Content title={options.title} />
             </Header>
           ),
-          title: 'Welcome!',
+          title: 'Welcome',
         })}
       />
       <Stack.Screen

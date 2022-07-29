@@ -5,8 +5,8 @@ import express from 'express';
 import proxy from 'express-http-proxy';
 import logger from 'morgan';
 import path from 'path';
-import { initUserModels } from 'src/server/collections/user/UserModel';
-// import { initGraphQL } from 'src/server/graphql/GraphQLSchema';
+import { initUserModels } from 'src/server/user/UserModel';
+import { initGraphQL } from 'src/server/graphql/GraphQLSchema';
 import environmentIsUsingHotReloading from 'src/server/env/environmentIsUsingHotReloading';
 import { initMongoClient } from 'src/server/mongo/client';
 
@@ -28,7 +28,7 @@ export function createExpressApp(): ReturnType<typeof express> {
 
   initMongoClient();
   initUserModels(app);
-  // initGraphQL(app);
+  initGraphQL(app);
 
   app.use(express.static(path.join(rootDirectory, 'assets')));
 

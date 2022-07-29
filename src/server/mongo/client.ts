@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import { MONGODB_DB_NAME } from 'src/server/env/MONGODB_DB_NAME';
 import { envGet } from 'src/shared/env';
 
 // Go to the MongoDB Atlas website and look at your database cluster. Click
@@ -11,7 +12,6 @@ const MONGODB_SUBDOMAIN = envGet('MONGODB_SUBDOMAIN', {
 });
 
 const PASSWORD = envGet('MONGODB_PASSWORD', { throwIfNotFound: true });
-const DB_NAME = envGet('MONGODB_DB_NAME', { throwIfNotFound: true });
 
 const CLUSTER = 'Cluster0';
 const DB_USER_NAME = 'user0';
@@ -26,7 +26,7 @@ export const MONGO_DB_URI =
   '.' +
   MONGODB_SUBDOMAIN +
   '.mongodb.net/' +
-  DB_NAME +
+  MONGODB_DB_NAME +
   '?retryWrites=true&w=majority';
 
 export function initMongoClient(): void {

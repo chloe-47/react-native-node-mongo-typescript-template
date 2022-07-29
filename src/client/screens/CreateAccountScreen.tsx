@@ -5,12 +5,12 @@ import { StyleSheet } from 'react-native';
 import { Button, Paragraph } from 'react-native-paper';
 import { ScrollableScreen } from 'src/client/components/scrollable_screen/ScrollableScreen';
 import { scrollableScreenElement } from 'src/client/components/scrollable_screen/scrollableScreenElement';
-import Text from 'src/client/components/Text';
 import TextInput, { TextInputHandles } from 'src/client/components/TextInput';
 import View from 'src/client/components/ViewWithBackground';
 import { useCreateCrumbtrailsToLandingScreenIfNeeded } from 'src/client/navigation/helpers/useCreateCrumbtrailsToLandingScreenIfNeeded';
 import { RootStackScreenProps } from 'src/client/navigation/NavigationTypes';
 import { reloadViewer, useHandleViewer } from 'src/client/viewer';
+import { ErrorNotice } from '../error/ErrorNotice';
 import type { Register } from './__generated__/Register';
 
 WebBrowser.maybeCompleteAuthSession();
@@ -23,9 +23,8 @@ export function CreateAccountScreen(
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
   const [confirmPassword, setConfirmPassword] = React.useState('');
-  const [runRegisterMutation, registerMutationState] =
+  const [runRegisterMutation, { loading, error }] =
     useMutation<Register>(REGISTER_MUTATION);
-  const { loading, error } = registerMutationState;
   useHandleViewer(navigation, 'Create Account', {
     loggedIn: async (_, goToMain) => {
       goToMain();
@@ -125,30 +124,27 @@ export function CreateAccountScreen(
             </View>
           ),
         }),
-        ...(error == null
-          ? []
-          : [
-              scrollableScreenElement({
-                key: 'error-message',
-                render: () => <Text>{error.message}</Text>,
-              }),
-            ]),
+        scrollableScreenElement({
+          key: 'error-message',
+          render: () => (
+            <ErrorNotice error={error} whenTryingToDoWhat="create an account" />
+          ),
+        }),
       ]}
     />
   );
 
-  function createAccount(): void {
-    runRegisterMutation({ variables: { password, username: email } }).then(
-      reloadViewer,
-    );
+  async function createAccount(): Promise<void> {
+    await runRegisterMutation({ variables: { password, emailAddress: email } });
+    await reloadViewer();
   }
 }
 
 const REGISTER_MUTATION = gql`
-  mutation Register($username: String!, $password: String!) {
-    register(username: $username, password: $password) {
+  mutation Register($emailAddress: String!, $password: String!) {
+    register(emailAddress: $emailAddress, password: $password) {
       user {
-        username
+        emailAddress
       }
     }
   }

@@ -12,11 +12,9 @@ import { RootStackParamList } from './navigation/NavigationTypes';
 export const ViewerStore = createStore<Viewer>(Loading);
 
 export type LoggedInViewer = Readonly<{
-  crews: string[];
   displayName: string;
   id: string;
   emailAddress: string;
-  taggableUsers: OtherUser[];
 }>;
 
 export type OtherUser = {
@@ -46,11 +44,6 @@ const VIEWER_QUERY = gql`
       _id
       emailAddress
       displayName
-      crews
-      taggableUsers {
-        id: _id
-        displayName
-      }
     }
   }
 `;
@@ -60,7 +53,6 @@ export function useLoadViewer(): void {
   const emailAddress = data?.me?.emailAddress;
   const id = data?.me?._id;
   const displayName = data?.me?.displayName || emailAddress;
-  const crews = data?.me?.crews ?? [];
   const viewer = React.useMemo((): Viewer => {
     if (loading) {
       return Loading;
@@ -68,14 +60,12 @@ export function useLoadViewer(): void {
       return undefined;
     } else {
       return {
-        crews,
         displayName,
         id,
-        taggableUsers: data?.me?.taggableUsers ?? [],
         emailAddress,
       };
     }
-  }, [emailAddress, loading, id, crews]);
+  }, [emailAddress, loading, id]);
   React.useEffect(() => {
     ViewerStore.update(viewer);
   }, [viewer]);

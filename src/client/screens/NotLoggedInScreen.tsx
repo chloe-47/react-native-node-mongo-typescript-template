@@ -1,13 +1,11 @@
 import * as React from 'react';
-import { Paragraph } from 'react-native-paper';
 import { Button } from 'src/client/components/Button';
 import { ScrollableScreen } from 'src/client/components/scrollable_screen/ScrollableScreen';
 import { scrollableScreenElement } from 'src/client/components/scrollable_screen/scrollableScreenElement';
-import Text from 'src/client/components/Text';
 import { RootStackScreenProps } from 'src/client/navigation/NavigationTypes';
 import { useHandleViewer } from 'src/client/viewer';
 import { FullWidthElementWithPadding } from '../components/FullWidthElementWithPadding';
-import { FeedbackCard } from './menu/cards/FeedbackCard';
+import { ContactCard } from './menu/cards/ContactCard';
 
 export function NotLoggedInScreen({
   navigation,
@@ -18,14 +16,6 @@ export function NotLoggedInScreen({
   return (
     <ScrollableScreen
       configs={[
-        scrollableScreenElement({
-          key: 'welcome',
-          render: () => (
-            <FullWidthElementWithPadding>
-              <Text style={{ textAlign: 'center' }}>Welcome</Text>
-            </FullWidthElementWithPadding>
-          ),
-        }),
         scrollableScreenElement({
           key: 'create-account',
           render: () => (
@@ -53,20 +43,10 @@ export function NotLoggedInScreen({
           ),
         }),
         scrollableScreenElement({
-          key: 'description',
+          key: 'ContactCard',
           render: () => (
             <FullWidthElementWithPadding>
-              <Paragraph style={{ textAlign: 'center' }}>
-                App description
-              </Paragraph>
-            </FullWidthElementWithPadding>
-          ),
-        }),
-        scrollableScreenElement({
-          key: 'FeedbackCard',
-          render: () => (
-            <FullWidthElementWithPadding>
-              <FeedbackCard />
+              <ContactCard />
             </FullWidthElementWithPadding>
           ),
         }),

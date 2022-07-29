@@ -56,6 +56,7 @@ export function ErrorNotice({
                     ? `Please make the following manual change: ${manualChange}`
                     : ''
                 }`,
+                '',
                 `Error Message: ${errorMessage}`,
                 `Reference: ${debugInfo}`,
               ],
@@ -91,11 +92,10 @@ const styles = StyleSheet.create({
   },
   container: {
     alignItems: 'flex-start',
-    borderRadius: 20,
+    borderRadius: 8,
     borderWidth: 4,
     flex: 1,
     justifyContent: 'flex-start',
-    margin: 10,
     padding: 10,
   },
 });

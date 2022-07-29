@@ -8,12 +8,12 @@
 // ====================================================
 
 export interface Login_login_user {
-  __typename: "User";
-  username: string;
+  __typename: 'User';
+  emailAddress: string;
 }
 
 export interface Login_login {
-  __typename: "CurrentUser";
+  __typename: 'CurrentUser';
   user: Login_login_user | null;
 }
 
@@ -22,6 +22,6 @@ export interface Login {
 }
 
 export interface LoginVariables {
-  username: string;
+  emailAddress: string;
   password: string;
 }

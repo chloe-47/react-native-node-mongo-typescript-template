@@ -28,7 +28,7 @@ export const LOGOUT_MUTATION = gql`
   mutation LogoutActionMutation {
     logout {
       user {
-        username
+        emailAddress
       }
     }
   }

@@ -26,14 +26,13 @@ export default function MainScreen(): React.ReactElement {
       <BottomTab.Screen
         component={HomeTabStackContainer}
         name="HomeTabStackContainer"
-        options={() => {
-          return {
-            tabBarIcon: ({ color, focused }) => (
-              <TabBarIcon color={color} focused={focused} name="handshake" />
-            ),
-            title: 'All Requests',
-          };
-        }}
+        options={() => ({
+          headerShown: true,
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon color={color} focused={focused} name="handshake" />
+          ),
+          title: 'Home',
+        })}
       />
       <BottomTab.Screen
         component={MenuTabStackContainer}

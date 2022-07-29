@@ -1,5 +1,7 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as React from 'react';
+import { Appbar } from 'react-native-paper';
+import Header from 'src/client/components/Header';
 import { RequireLoggedInScreen } from 'src/client/components/RequireLoggedInScreen';
 import StackNavigatorInsideTabNavigator from 'src/client/navigation/helpers/StackNavigatorInsideTabNavigator';
 import {
@@ -17,7 +19,18 @@ export function HomeTabStackContainer(): JSX.Element {
   return (
     <StackNavigatorInsideTabNavigator>
       <Stack.Navigator>
-        <Stack.Screen component={wrapComponent(HomeScreen)} name="Home" />
+        <Stack.Screen
+          component={wrapComponent(HomeScreen)}
+          name="Home"
+          options={() => ({
+            header: ({ options }) => (
+              <Header>
+                <Appbar.Content title={options.title} />
+              </Header>
+            ),
+            title: 'Home',
+          })}
+        />
       </Stack.Navigator>
     </StackNavigatorInsideTabNavigator>
   );

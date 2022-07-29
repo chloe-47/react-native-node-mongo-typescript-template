@@ -4,7 +4,7 @@ import { RequireLoggedInScreen } from 'src/client/components/RequireLoggedInScre
 import { ScrollableScreen } from 'src/client/components/scrollable_screen/ScrollableScreen';
 import { scrollableScreenElement } from 'src/client/components/scrollable_screen/scrollableScreenElement';
 import { AttributionCard } from 'src/client/screens/menu/cards/AttributionCard';
-import { FeedbackCard } from 'src/client/screens/menu/cards/FeedbackCard';
+import { ContactCard } from 'src/client/screens/menu/cards/ContactCard';
 import { YourAccountMenuCard } from 'src/client/screens/menu/cards/YourAccountMenuCard';
 
 export function MenuScreen(): JSX.Element {
@@ -17,8 +17,8 @@ export function MenuScreen(): JSX.Element {
             render: () => <YourAccountMenuCard />,
           }),
           scrollableScreenElement({
-            key: 'FeedbackCard',
-            render: () => <FeedbackCard />,
+            key: 'ContactCard',
+            render: () => <ContactCard />,
           }),
           scrollableScreenElement({
             key: 'AttributionCard',

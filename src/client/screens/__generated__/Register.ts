@@ -9,7 +9,7 @@
 
 export interface Register_register_user {
   __typename: 'User';
-  username: string;
+  emailAddress: string;
 }
 
 export interface Register_register {
@@ -22,6 +22,6 @@ export interface Register {
 }
 
 export interface RegisterVariables {
-  username: string;
+  emailAddress: string;
   password: string;
 }

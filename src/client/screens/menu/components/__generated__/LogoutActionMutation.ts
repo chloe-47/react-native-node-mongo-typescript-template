@@ -9,7 +9,7 @@
 
 export interface LogoutActionMutation_logout_user {
   __typename: 'User';
-  username: string;
+  emailAddress: string;
 }
 
 export interface LogoutActionMutation_logout {
