@@ -6,7 +6,7 @@ type Props = {
   key: string;
 };
 
-export default function singleElement({
+export function scrollableScreenElement({
   render,
   key,
 }: Props): SectionRendererData {

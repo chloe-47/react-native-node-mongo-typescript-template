@@ -4,7 +4,7 @@ import * as React from 'react';
 import { StyleSheet } from 'react-native';
 import { Button, Paragraph } from 'react-native-paper';
 import { ScrollableScreen } from 'src/client/components/scrollable_screen/ScrollableScreen';
-import scrollableScreenElement from 'src/client/components/scrollable_screen/scrollableScreenElement';
+import { scrollableScreenElement } from 'src/client/components/scrollable_screen/scrollableScreenElement';
 import Text from 'src/client/components/Text';
 import TextInput, { TextInputHandles } from 'src/client/components/TextInput';
 import View from 'src/client/components/ViewWithBackground';

@@ -16,7 +16,7 @@ export interface ViewerQuery_me_taggableUsers {
 export interface ViewerQuery_me {
   __typename: 'User';
   _id: string;
-  username: string;
+  emailAddress: string;
   displayName: string;
   crews: string[];
   taggableUsers: ViewerQuery_me_taggableUsers[];

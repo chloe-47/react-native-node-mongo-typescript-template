@@ -15,7 +15,7 @@ export type LoggedInViewer = Readonly<{
   crews: string[];
   displayName: string;
   id: string;
-  username: string;
+  emailAddress: string;
   taggableUsers: OtherUser[];
 }>;
 
@@ -44,7 +44,7 @@ const VIEWER_QUERY = gql`
   query ViewerQuery {
     me {
       _id
-      username
+      emailAddress
       displayName
       crews
       taggableUsers {
@@ -57,14 +57,14 @@ const VIEWER_QUERY = gql`
 
 export function useLoadViewer(): void {
   const { data, loading } = useQuery<ViewerQuery>(VIEWER_QUERY);
-  const username = data?.me?.username;
+  const emailAddress = data?.me?.emailAddress;
   const id = data?.me?._id;
-  const displayName = data?.me?.displayName || username;
+  const displayName = data?.me?.displayName || emailAddress;
   const crews = data?.me?.crews ?? [];
   const viewer = React.useMemo((): Viewer => {
     if (loading) {
       return Loading;
-    } else if (username == null || id == null || displayName == null) {
+    } else if (emailAddress == null || id == null || displayName == null) {
       return undefined;
     } else {
       return {
@@ -72,10 +72,10 @@ export function useLoadViewer(): void {
         displayName,
         id,
         taggableUsers: data?.me?.taggableUsers ?? [],
-        username,
+        emailAddress,
       };
     }
-  }, [username, loading, id, crews]);
+  }, [emailAddress, loading, id, crews]);
   React.useEffect(() => {
     ViewerStore.update(viewer);
   }, [viewer]);
@@ -102,9 +102,9 @@ export function useLoggedInViewerID(): string {
   return viewer.id;
 }
 
-export function useViewerUsername(): string {
-  const { username } = useLoggedInViewer();
-  return username;
+export function useViewerEmailAddress(): string {
+  const { emailAddress } = useLoggedInViewer();
+  return emailAddress;
 }
 
 export function useIsLoadingLoggedInStatus(): boolean {

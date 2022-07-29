@@ -4,13 +4,14 @@
 // This file was automatically generated and should not be edited.
 
 // ====================================================
-// GraphQL mutation operation: SendPasswordResetEmail
+// GraphQL mutation operation: ResetPasswordMutation
 // ====================================================
 
-export interface SendPasswordResetEmail {
-  sendPasswordResetEmail: string;
+export interface ResetPasswordMutation {
+  resetPassword: string;
 }
 
-export interface SendPasswordResetEmailVariables {
-  emailAddress: string;
+export interface ResetPasswordMutationVariables {
+  token: string;
+  password: string;
 }

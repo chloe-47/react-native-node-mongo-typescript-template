@@ -1,6 +1,5 @@
 import * as SplashScreen from 'expo-splash-screen';
 import * as React from 'react';
-import reportError from 'src/client/error/reportError';
 
 export function useLoadPrerenderDependencies(): boolean {
   const [isLoadingComplete, setLoadingComplete] = React.useState(false);

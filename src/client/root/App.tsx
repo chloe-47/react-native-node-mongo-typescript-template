@@ -4,14 +4,14 @@ import React from 'react';
 import { AppRegistry } from 'react-native';
 import { Provider as PaperProvider } from 'react-native-paper';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { useColorScheme } from 'src/client/colors';
 import LoadingScreen from 'src/client/components/LoadingScreen';
 import ErrorBoundary from 'src/client/error/ErrorBoundary';
 import initErrorLogging from 'src/client/error/initErrorLogging';
 import { graphqlClient } from 'src/client/graphql/graphqlClient';
-import Navigation from 'src/client/navigation/root/RootNavigation';
 import RootLevelComponents from 'src/client/root/RootLevelComponents';
+import { RootNavigation } from 'src/client/root/RootNavigation';
 import { useLoadPrerenderDependencies } from 'src/client/root/useLoadPrerenderDependencies';
-import { useColorScheme } from 'src/client/colors';
 import {
   DARK_THEME,
   LIGHT_THEME,
@@ -33,7 +33,7 @@ export default function App() {
           <PaperProvider theme={paperTheme}>
             <ApolloProvider client={graphqlClient}>
               <RootLevelComponents>
-                <Navigation colorScheme={colorScheme} />
+                <RootNavigation colorScheme={colorScheme} />
                 <StatusBar />
               </RootLevelComponents>
             </ApolloProvider>

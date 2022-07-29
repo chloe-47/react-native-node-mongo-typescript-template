@@ -23,8 +23,8 @@ import { RootNavigationStore } from 'src/client/root/RootNavigationStore';
 import { CreateAccountScreen } from 'src/client/screens/CreateAccountScreen';
 import { LoginScreen } from 'src/client/screens/LoginScreen';
 import MainScreen from 'src/client/screens/main/MainScreen';
-import NotFoundScreen from 'src/client/screens/not_found/NotFoundScreen';
-import NotLoggedInScreen from 'src/client/screens/not_logged_in/NotLoggedInScreen';
+import { NotFoundScreen } from 'src/client/screens/NotFoundScreen';
+import { NotLoggedInScreen } from 'src/client/screens/NotLoggedInScreen';
 import ResetPasswordScreen from 'src/client/screens/reset_password/ResetPasswordScreen';
 
 const LIGHT_THEME = {
@@ -37,7 +37,7 @@ const DARK_THEME = {
   colors: { ...DarkTheme.colors, background: Colors.dark.background },
 };
 
-export default function Navigation({
+export function RootNavigation({
   colorScheme,
 }: {
   colorScheme: ColorSchemeName;

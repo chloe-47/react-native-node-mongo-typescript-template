@@ -14,7 +14,7 @@ type Props = {
   whenTryingToDoWhat: string;
 };
 
-export default function ErrorNotice({
+export function ErrorNotice({
   error,
   whenTryingToDoWhat,
   manualChange,

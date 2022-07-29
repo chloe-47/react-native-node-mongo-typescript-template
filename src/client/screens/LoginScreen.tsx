@@ -5,11 +5,11 @@ import { StyleSheet } from 'react-native';
 import { Button, Paragraph } from 'react-native-paper';
 import { EmailLink } from 'src/client/components/EmailLink';
 import { ScrollableScreen } from 'src/client/components/scrollable_screen/ScrollableScreen';
-import scrollableScreenElement from 'src/client/components/scrollable_screen/scrollableScreenElement';
+import { scrollableScreenElement } from 'src/client/components/scrollable_screen/scrollableScreenElement';
 import { SuccessNotice } from 'src/client/components/SuccessNotice';
 import TextInput, { TextInputHandles } from 'src/client/components/TextInput';
 import View from 'src/client/components/ViewWithBackground';
-import ErrorNotice from 'src/client/error/ErrorNotice';
+import { ErrorNotice } from 'src/client/error/ErrorNotice';
 import { useCreateCrumbtrailsToLandingScreenIfNeeded } from 'src/client/navigation/helpers/useCreateCrumbtrailsToLandingScreenIfNeeded';
 import { RootStackScreenProps } from 'src/client/navigation/NavigationTypes';
 import type {
@@ -27,7 +27,7 @@ export function LoginScreen(props: RootStackScreenProps<'Login'>) {
   useCreateCrumbtrailsToLandingScreenIfNeeded(props, props.route.params);
   const { message, email: initialEmail } = props.route.params;
 
-  const [email, setEmail] = React.useState(initialEmail ?? '');
+  const [emailAddress, setEmail] = React.useState(initialEmail ?? '');
   const [password, setPassword] = React.useState('');
   const [runLoginMutation, loginMutationState] =
     useMutation<Login>(LOGIN_MUTATION);
@@ -86,7 +86,7 @@ export function LoginScreen(props: RootStackScreenProps<'Login'>) {
                 }}
                 returnKeyType="next"
                 setValue={(value: string) => !loading && setEmail(value)}
-                value={email}
+                value={emailAddress}
               />
             </View>
           ),
@@ -153,7 +153,7 @@ export function LoginScreen(props: RootStackScreenProps<'Login'>) {
                       Password' button if you need to reset your password. Email{' '}
                       <EmailLink
                         emailUser="support"
-                        subject={`Login Support (${email})`}
+                        subject={`Login Support (${emailAddress})`}
                       />{' '}
                       if you need help with anything.
                     </Paragraph>
@@ -167,7 +167,9 @@ export function LoginScreen(props: RootStackScreenProps<'Login'>) {
             <View style={styles.element}>
               <ErrorNotice
                 error={sendPasswordResetEmailError}
-                manualChange={'create a password reset link for ' + email}
+                manualChange={
+                  'create a password reset link for ' + emailAddress
+                }
                 whenTryingToDoWhat="send you a password reset email"
               />
             </View>
@@ -189,31 +191,31 @@ export function LoginScreen(props: RootStackScreenProps<'Login'>) {
 
   async function login(): Promise<void> {
     await runLoginMutation({
-      variables: { password, username: email },
+      variables: { password, emailAddress },
     });
     reloadViewer();
   }
 
   async function forgotPassword(): Promise<void> {
     await runSendPasswordResetEmailMutation({
-      variables: { username: email },
+      variables: { emailAddress },
     });
   }
 }
 
 export const LOGIN_MUTATION = gql`
-  mutation Login($username: String!, $password: String!) {
-    login(username: $username, password: $password) {
+  mutation Login($emailAddress: String!, $password: String!) {
+    login(emailAddress: $emailAddress, password: $password) {
       user {
-        username
+        emailAddress
       }
     }
   }
 `;
 
 export const SEND_PASSWORD_RESET_EMAIL_MUTATION = gql`
-  mutation SendPasswordResetEmail($username: String!) {
-    sendPasswordResetEmail(username: $username)
+  mutation SendPasswordResetEmail($emailAddress: String!) {
+    sendPasswordResetEmail(emailAddress: $emailAddress)
   }
 `;
 
