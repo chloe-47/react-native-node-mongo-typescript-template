@@ -8,12 +8,12 @@
 // ====================================================
 
 export interface Login_login_user {
-  __typename: 'User';
+  __typename: "User";
   emailAddress: string;
 }
 
 export interface Login_login {
-  __typename: 'CurrentUser';
+  __typename: "CurrentUser";
   user: Login_login_user | null;
 }
 

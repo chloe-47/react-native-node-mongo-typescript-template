@@ -8,7 +8,7 @@
 // ====================================================
 
 export interface ResetPasswordLinkDetailsQuery_resetPasswordLinkDetails {
-  __typename: 'ResetPasswordLinkDetails';
+  __typename: "ResetPasswordLinkDetails";
   emailAddress: string;
   expiration_time: any;
   is_valid: boolean;

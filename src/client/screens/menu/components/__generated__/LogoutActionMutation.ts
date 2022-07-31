@@ -8,12 +8,12 @@
 // ====================================================
 
 export interface LogoutActionMutation_logout_user {
-  __typename: 'User';
+  __typename: "User";
   emailAddress: string;
 }
 
 export interface LogoutActionMutation_logout {
-  __typename: 'CurrentUser';
+  __typename: "CurrentUser";
   user: LogoutActionMutation_logout_user | null;
 }
 

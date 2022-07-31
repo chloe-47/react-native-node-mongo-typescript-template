@@ -8,12 +8,12 @@
 // ====================================================
 
 export interface Register_register_user {
-  __typename: 'User';
+  __typename: "User";
   emailAddress: string;
 }
 
 export interface Register_register {
-  __typename: 'CurrentUser';
+  __typename: "CurrentUser";
   user: Register_register_user | null;
 }
 

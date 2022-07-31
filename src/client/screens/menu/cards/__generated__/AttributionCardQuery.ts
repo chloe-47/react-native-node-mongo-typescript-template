@@ -8,7 +8,7 @@
 // ====================================================
 
 export interface AttributionCardQuery_attributions {
-  __typename: 'Attribution';
+  __typename: "Attribution";
   icon: string;
   text: string;
 }

@@ -8,7 +8,7 @@
 // ====================================================
 
 export interface ChangeNameMutation_payload {
-  __typename: 'User';
+  __typename: "User";
   _id: string;
   displayName: string;
 }

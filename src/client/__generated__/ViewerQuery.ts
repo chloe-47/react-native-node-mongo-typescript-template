@@ -8,7 +8,7 @@
 // ====================================================
 
 export interface ViewerQuery_me {
-  __typename: 'User';
+  __typename: "User";
   _id: string;
   emailAddress: string;
   displayName: string;
