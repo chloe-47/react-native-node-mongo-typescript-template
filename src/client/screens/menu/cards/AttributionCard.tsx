@@ -2,7 +2,7 @@ import { gql, useQuery } from '@apollo/client';
 import * as React from 'react';
 import { FlatList, ListRenderItemInfo } from 'react-native';
 import { Card, List } from 'react-native-paper';
-import Icon from 'src/client/components/Icon';
+import { Icon } from 'src/client/components/Icon';
 import { StyledCard } from 'src/client/components/StyledCard';
 import { filterNulls } from 'src/shared/utils/filterNulls';
 import {

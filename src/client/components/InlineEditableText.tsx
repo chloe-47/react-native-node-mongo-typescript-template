@@ -2,13 +2,13 @@ import * as React from 'react';
 import { Platform, StyleProp, TextInput, TextStyle } from 'react-native';
 import { useColor } from 'src/client/colors';
 
-type Props = {
+type Props = Readonly<{
   value: string;
   save: (newValue: string) => Promise<unknown>;
   style: StyleProp<TextStyle>;
-};
+}>;
 
-export default function WhoIsItFor({ value, save, style }: Props): JSX.Element {
+export function InlineEditableText({ value, save, style }: Props): JSX.Element {
   const color = useColor('text');
   const [temporaryValue, setTemporaryValue] = React.useState<string>(value);
 

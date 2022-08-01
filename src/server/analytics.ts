@@ -14,11 +14,11 @@ const mongoAnalytics = {
   },
 };
 
-type Message = {
+type Message = Readonly<{
   user: Express.User | null;
   event: string;
   properties?: Record<string, string>;
-};
+}>;
 
 export const analytics = {
   track: (message: Message): void => {

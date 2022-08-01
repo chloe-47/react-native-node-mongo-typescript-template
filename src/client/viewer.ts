@@ -17,10 +17,10 @@ export type LoggedInViewer = Readonly<{
   emailAddress: string;
 }>;
 
-export type OtherUser = {
+export type OtherUser = Readonly<{
   id: string;
   displayName: string;
-};
+}>;
 
 export type LoggedOutViewer = undefined;
 

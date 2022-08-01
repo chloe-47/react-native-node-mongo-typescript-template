@@ -7,8 +7,8 @@ import { EmailLink } from 'src/client/components/EmailLink';
 import { ScrollableScreen } from 'src/client/components/scrollable_screen/ScrollableScreen';
 import { scrollableScreenElement } from 'src/client/components/scrollable_screen/scrollableScreenElement';
 import { SuccessNotice } from 'src/client/components/SuccessNotice';
-import TextInput, { TextInputHandles } from 'src/client/components/TextInput';
-import View from 'src/client/components/ViewWithBackground';
+import { TextInput, TextInputHandles } from 'src/client/components/TextInput';
+import { ViewWithBackground } from 'src/client/components/ViewWithBackground';
 import { ErrorNotice } from 'src/client/error/ErrorNotice';
 import { useCreateCrumbtrailsToLandingScreenIfNeeded } from 'src/client/navigation/helpers/useCreateCrumbtrailsToLandingScreenIfNeeded';
 import { RootStackScreenProps } from 'src/client/navigation/NavigationTypes';
@@ -63,16 +63,16 @@ export function LoginScreen(props: RootStackScreenProps<'Login'>) {
               scrollableScreenElement({
                 key: 'message',
                 render: () => (
-                  <View style={styles.element}>
+                  <ViewWithBackground style={styles.element}>
                     <SuccessNotice text={message} />
-                  </View>
+                  </ViewWithBackground>
                 ),
               }),
             ]),
         scrollableScreenElement({
           key: 'email',
           render: () => (
-            <View style={styles.element}>
+            <ViewWithBackground style={styles.element}>
               <TextInput
                 autoComplete="email"
                 autoFocus={!initialEmail}
@@ -88,13 +88,13 @@ export function LoginScreen(props: RootStackScreenProps<'Login'>) {
                 setValue={(value: string) => !loading && setEmail(value)}
                 value={emailAddress}
               />
-            </View>
+            </ViewWithBackground>
           ),
         }),
         scrollableScreenElement({
           key: 'password',
           render: () => (
-            <View style={styles.element}>
+            <ViewWithBackground style={styles.element}>
               <TextInput
                 autoComplete="password"
                 autoFocus={!!initialEmail}
@@ -108,13 +108,13 @@ export function LoginScreen(props: RootStackScreenProps<'Login'>) {
                 setValue={(value: string) => !loading && setPassword(value)}
                 value={password}
               />
-            </View>
+            </ViewWithBackground>
           ),
         }),
         scrollableScreenElement({
           key: 'login-button',
           render: () => (
-            <View style={[styles.button, styles.element]}>
+            <ViewWithBackground style={[styles.button, styles.element]}>
               <Button
                 disabled={loading}
                 loading={loginLoading}
@@ -123,13 +123,13 @@ export function LoginScreen(props: RootStackScreenProps<'Login'>) {
               >
                 Login
               </Button>
-            </View>
+            </ViewWithBackground>
           ),
         }),
         scrollableScreenElement({
           key: 'forgot-password',
           render: () => (
-            <View style={[styles.button, styles.element]}>
+            <ViewWithBackground style={[styles.button, styles.element]}>
               <Button
                 disabled={loading}
                 loading={sendPasswordResetEmailLoading}
@@ -138,7 +138,7 @@ export function LoginScreen(props: RootStackScreenProps<'Login'>) {
               >
                 Forgot Password
               </Button>
-            </View>
+            </ViewWithBackground>
           ),
         }),
         ...(loginError == null
@@ -147,7 +147,7 @@ export function LoginScreen(props: RootStackScreenProps<'Login'>) {
               scrollableScreenElement({
                 key: 'login-error',
                 render: () => (
-                  <View style={styles.element}>
+                  <ViewWithBackground style={styles.element}>
                     <Paragraph>
                       {getErrorMessage(loginError)}. Please use the 'Forgot
                       Password' button if you need to reset your password. Email{' '}
@@ -157,14 +157,14 @@ export function LoginScreen(props: RootStackScreenProps<'Login'>) {
                       />{' '}
                       if you need help with anything.
                     </Paragraph>
-                  </View>
+                  </ViewWithBackground>
                 ),
               }),
             ]),
         scrollableScreenElement({
           key: 'send-password-reset-email-error',
           render: () => (
-            <View style={styles.element}>
+            <ViewWithBackground style={styles.element}>
               <ErrorNotice
                 error={sendPasswordResetEmailError}
                 manualChange={
@@ -172,17 +172,17 @@ export function LoginScreen(props: RootStackScreenProps<'Login'>) {
                 }
                 whenTryingToDoWhat="send you a password reset email"
               />
-            </View>
+            </ViewWithBackground>
           ),
         }),
         scrollableScreenElement({
           key: 'sendPasswordResetEmailData',
           render: () => (
-            <View style={styles.element}>
+            <ViewWithBackground style={styles.element}>
               <SuccessNotice
                 text={sendPasswordResetEmailData?.sendPasswordResetEmail}
               />
-            </View>
+            </ViewWithBackground>
           ),
         }),
       ]}

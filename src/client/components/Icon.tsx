@@ -4,14 +4,14 @@ import { TouchableRipple } from 'react-native-paper';
 import { useColorScheme } from 'src/client/colors';
 import { getURL } from 'src/client/host';
 
-type Props = {
+type Props = Readonly<{
   scheme?: 'light' | 'dark';
   onPress?: () => void;
   path: string | undefined | null;
   size?: number;
-};
+}>;
 
-export default function Icon({
+export function Icon({
   scheme: schemeProp,
   onPress,
   path,

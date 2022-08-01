@@ -1,6 +1,6 @@
 let initialized = false;
 
-export default function initErrorLogging(): void {
+export function initErrorLogging(): void {
   // TODO - Implement error logging
   if (!initialized) {
     // Bugsnag.start({

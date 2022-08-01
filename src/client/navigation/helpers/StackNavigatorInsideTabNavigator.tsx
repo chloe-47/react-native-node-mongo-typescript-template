@@ -9,7 +9,7 @@ import type { ChildrenPropsType } from 'src/client/utils/ChildrenPropsType';
  *
  * Workaround from: https://github.com/software-mansion/react-native-screens/issues/1197#issuecomment-993682256
  */
-export default function StackNavigatorInsideTabNavigator({
+export function StackNavigatorInsideTabNavigator({
   children,
 }: ChildrenPropsType): React.ReactElement {
   return (

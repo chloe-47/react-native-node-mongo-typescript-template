@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { ListRenderItemInfo, SectionList, SectionListData } from 'react-native';
 import { CenteredOnScreen } from 'src/client/components/CenteredOnScreen';
-import useViewWidth from 'src/client/components/useViewWidth';
-import ErrorBoundary from 'src/client/error/ErrorBoundary';
+import { useViewWidth } from 'src/client/components/useViewWidth';
+import { ErrorBoundary } from 'src/client/error/ErrorBoundary';
 
-export type ScrollableScreenItem = {
+export type ScrollableScreenItem = Readonly<{
   key: string;
   render: () => JSX.Element;
-};
+}>;
 
 export type ScrollableScreenSectionProps =
   SectionListData<ScrollableScreenItem>;
@@ -19,13 +19,15 @@ type ExtraProps = Partial<
   >
 >;
 
-export type SectionRendererData = {
-  section: ScrollableScreenSectionProps;
-} & ExtraProps;
+export type SectionRendererData = Readonly<
+  {
+    section: ScrollableScreenSectionProps;
+  } & ExtraProps
+>;
 
-type Props = {
+type Props = Readonly<{
   configs: SectionRendererData[];
-};
+}>;
 
 export function ScrollableScreen({ configs }: Props): JSX.Element {
   const viewWidth = useViewWidth();

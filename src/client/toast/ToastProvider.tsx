@@ -4,10 +4,10 @@ import { Snackbar } from 'react-native-paper';
 import { CenteredOnScreen } from 'src/client/components/CenteredOnScreen';
 import { createEmailLink } from 'src/client/email_link/createEmailLink';
 import { uploadErrorReport } from 'src/client/error/uploadErrorReport';
-import useErrorReport from 'src/client/error/useErrorReport';
+import { useErrorReport } from 'src/client/error/useErrorReport';
 import { useStore } from 'src/client/store';
 import { ErrorToastStore } from 'src/client/toast/ErrorToastStore';
-import ToastStore from 'src/client/toast/ToastStore';
+import { ToastStore } from 'src/client/toast/ToastStore';
 import { ChildrenPropsType } from 'src/client/utils/ChildrenPropsType';
 import { uniques } from 'src/shared/utils/uniques';
 
@@ -18,7 +18,7 @@ type ErrorReportState =
   | 'ThankYou'
   | undefined;
 
-export default function ToastProvider({
+export function ToastProvider({
   children,
 }: ChildrenPropsType): React.ReactElement {
   const toastContext = useStore(ToastStore);

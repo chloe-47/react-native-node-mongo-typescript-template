@@ -4,9 +4,9 @@ import {
   ErrorToastEventStreamEvent,
 } from 'src/client/toast/ErrorToastEventStream';
 
-type ErrorStoreData = {
+type ErrorStoreData = Readonly<{
   errors: ErrorToastEventStreamEvent[];
-};
+}>;
 
 export const ErrorToastStore = createStore<ErrorStoreData>({ errors: [] });
 

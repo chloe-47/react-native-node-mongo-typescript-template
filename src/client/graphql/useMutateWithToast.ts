@@ -1,6 +1,6 @@
 import { ApolloError, TypedDocumentNode, useMutation } from '@apollo/client';
-import ToastStore from 'src/client/toast/ToastStore';
 import { tryCatchAsync } from 'src/client/error/tryCatch';
+import { ToastStore } from 'src/client/toast/ToastStore';
 
 type Args<TData, TVariables> = {
   errorMessage: string;
@@ -16,7 +16,7 @@ export type ReturnValues<TVariables> = {
   error: ApolloError | undefined;
 };
 
-export default function useMutateWithToast<TData, TVariables>({
+export function useMutateWithToast<TData, TVariables>({
   errorMessage,
   mutation,
   onSuccess,

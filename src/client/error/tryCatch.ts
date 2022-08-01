@@ -11,7 +11,7 @@ type Args<T> =
       valueOnErrorFn: (error: Error) => T;
     };
 
-export default function tryCatch<T>(args: Args<T>): T {
+export function tryCatch<T>(args: Args<T>): T {
   try {
     return args.run();
   } catch (e: unknown) {

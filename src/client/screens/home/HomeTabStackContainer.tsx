@@ -1,19 +1,19 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as React from 'react';
 import { Appbar } from 'react-native-paper';
-import Header from 'src/client/components/Header';
+import { Header } from 'src/client/components/Header';
 import { RequireLoggedInScreen } from 'src/client/components/RequireLoggedInScreen';
-import StackNavigatorInsideTabNavigator from 'src/client/navigation/helpers/StackNavigatorInsideTabNavigator';
+import { StackNavigatorInsideTabNavigator } from 'src/client/navigation/helpers/StackNavigatorInsideTabNavigator';
 import {
   HomeStackParamList,
   HomeStackScreenProps,
 } from 'src/client/navigation/NavigationTypes';
-import HomeNavigationStore from 'src/client/screens/home/HomeNavigationStore';
+import { HomeNavigationStore } from 'src/client/screens/home/HomeNavigationStore';
 import { HomeScreen } from 'src/client/screens/home/HomeScreen';
 
 const Stack = createNativeStackNavigator<HomeStackParamList>();
 
-export type ExtraProps = { navigateToProfile: () => void };
+export type ExtraProps = Readonly<{ navigateToProfile: () => void }>;
 
 export function HomeTabStackContainer(): JSX.Element {
   return (

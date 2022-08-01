@@ -2,12 +2,12 @@ import { gql } from '@apollo/client';
 import * as React from 'react';
 import { StyleSheet } from 'react-native';
 import { Card, Paragraph, ProgressBar } from 'react-native-paper';
-import InlineEditableText from 'src/client/components/InlineEditableText';
+import { InlineEditableText } from 'src/client/components/InlineEditableText';
 import { StyledCard } from 'src/client/components/StyledCard';
-import Text from 'src/client/components/Text';
+import { Text } from 'src/client/components/Text';
 import { ErrorNotice } from 'src/client/error/ErrorNotice';
-import resetCache from 'src/client/graphql/resetCache';
-import useMutateWithToast from 'src/client/graphql/useMutateWithToast';
+import { resetCache } from 'src/client/graphql/resetCache';
+import { useMutateWithToast } from 'src/client/graphql/useMutateWithToast';
 import { LogoutAction } from 'src/client/screens/menu/components/LogoutAction';
 import { useLoggedInViewer } from 'src/client/viewer';
 import {

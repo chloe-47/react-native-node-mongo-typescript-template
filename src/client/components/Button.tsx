@@ -3,11 +3,11 @@ import { StyleSheet, Text } from 'react-native';
 import { TouchableRipple } from 'react-native-paper';
 import { useColor } from 'src/client/colors';
 
-type Props = {
+type Props = Readonly<{
   loading?: boolean;
   text: string;
   onPress: () => void;
-};
+}>;
 
 export function Button({ text, onPress }: Props): JSX.Element {
   const backgroundColor = useColor('m3buttonBackground');

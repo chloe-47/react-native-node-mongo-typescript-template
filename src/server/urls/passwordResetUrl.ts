@@ -1,9 +1,9 @@
-import getDomainAndProtocol from 'src/server/urls/getDomainAndProtocol';
+import { DOMAIN_AND_PROTOCOL } from 'src/server/urls/DOMAIN_AND_PROTOCOL';
 import { PASSWORD_RESET_PATH } from 'src/shared/urls/PASSWORD_RESET_PATH';
 import { TOKEN_URL_PARAM } from 'src/shared/urls/TOKEN_URL_PARAM';
 
-export default function aidRequestNotificationSettingsUrl(
-  token: string,
-): string {
-  return `${getDomainAndProtocol()}/${PASSWORD_RESET_PATH}?${TOKEN_URL_PARAM}=${token}`;
+const PREFIX = `${DOMAIN_AND_PROTOCOL}/${PASSWORD_RESET_PATH}?${TOKEN_URL_PARAM}=`;
+
+export function passwordResetUrl(token: string): string {
+  return PREFIX + token;
 }

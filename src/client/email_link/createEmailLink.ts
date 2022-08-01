@@ -1,10 +1,10 @@
-import getEmailAddress from 'src/shared/urls/getEmailAddress';
+import { getEmailAddress } from 'src/shared/urls/getEmailAddress';
 
-export type Props = {
+export type Props = Readonly<{
   body?: string[];
   emailUser: string;
   subject: string;
-};
+}>;
 
 const NEWLINE = '%0D%0A';
 

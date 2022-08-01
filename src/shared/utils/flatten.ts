@@ -1,4 +1,4 @@
-export function flatten<T>(array: Array<Array<T>>): Array<T> {
+export function flatten<T>(array: ReadonlyArray<ReadonlyArray<T>>): Array<T> {
   const flattened: Array<T> = [];
   for (const elem of array) {
     for (const subElem of elem) {

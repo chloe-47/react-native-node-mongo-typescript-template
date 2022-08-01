@@ -1,7 +1,7 @@
 import { ApolloError } from '@apollo/client';
 import * as React from 'react';
 import { uploadErrorReport } from 'src/client/error/uploadErrorReport';
-import useErrorReport from 'src/client/error/useErrorReport';
+import { useErrorReport } from 'src/client/error/useErrorReport';
 
 export function useMaybeMinifiedErrorReport(arg: ApolloError | ApolloError[]): {
   errorMessage: string;

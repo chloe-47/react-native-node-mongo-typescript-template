@@ -12,9 +12,9 @@ import * as React from 'react';
 import { ColorSchemeName } from 'react-native';
 import { Appbar } from 'react-native-paper';
 import { Colors } from 'src/client/colors';
-import Header from 'src/client/components/Header';
-import navigateToMain from 'src/client/navigation/helpers/navigateToMain';
-import LinkingConfiguration from 'src/client/navigation/LinkingConfiguration';
+import { Header } from 'src/client/components/Header';
+import { navigateToMain } from 'src/client/navigation/helpers/navigateToMain';
+import { LinkingConfiguration } from 'src/client/navigation/LinkingConfiguration';
 import type {
   RootStackParamList,
   RootStackScreenProps,
@@ -22,10 +22,10 @@ import type {
 import { RootNavigationStore } from 'src/client/root/RootNavigationStore';
 import { CreateAccountScreen } from 'src/client/screens/CreateAccountScreen';
 import { LoginScreen } from 'src/client/screens/LoginScreen';
-import MainScreen from 'src/client/screens/main/MainScreen';
+import { MainScreen } from 'src/client/screens/main/MainScreen';
 import { NotFoundScreen } from 'src/client/screens/NotFoundScreen';
 import { NotLoggedInScreen } from 'src/client/screens/NotLoggedInScreen';
-import ResetPasswordScreen from 'src/client/screens/reset_password/ResetPasswordScreen';
+import { ResetPasswordScreen } from 'src/client/screens/reset_password/ResetPasswordScreen';
 
 const LIGHT_THEME = {
   ...DefaultTheme,

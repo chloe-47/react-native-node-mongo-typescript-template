@@ -1,8 +1,8 @@
 import { schemaComposer } from 'graphql-compose';
 
-export type Person = {
+export type Person = Readonly<{
   displayName: string;
-};
+}>;
 
 export type UnregisteredPerson = Person;
 
@@ -46,6 +46,6 @@ export const CurrentUserGraphQLType = schemaComposer.createObjectTC({
   name: 'CurrentUser',
 });
 
-export type CurrentUserPayload = {
+export type CurrentUserPayload = Readonly<{
   user: Express.User | undefined;
-};
+}>;

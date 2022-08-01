@@ -1,6 +1,6 @@
 import { logServerError } from 'src/server/logServerError';
 
-export default function setTimeoutSafe(
+export function setTimeoutSafe(
   loggingTag: string,
   ...[callback, ...args]: Parameters<typeof setTimeout>
 ): ReturnType<typeof setTimeout> {

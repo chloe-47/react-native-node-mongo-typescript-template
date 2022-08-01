@@ -2,8 +2,8 @@ import { gql, useMutation } from '@apollo/client';
 import * as React from 'react';
 import { ProgressBar } from 'react-native-paper';
 import { Button } from 'src/client/components/Button';
-import Text from 'src/client/components/Text';
-import resetCache from 'src/client/graphql/resetCache';
+import { Text } from 'src/client/components/Text';
+import { resetCache } from 'src/client/graphql/resetCache';
 import type { LogoutActionMutation } from './__generated__/LogoutActionMutation';
 
 export function LogoutAction(): JSX.Element {

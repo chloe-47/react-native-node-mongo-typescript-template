@@ -4,7 +4,7 @@ import { useColor } from 'src/client/colors';
 
 export type TextProps = ReactNativeText['props'];
 
-export default function Text(props: TextProps) {
+export function Text(props: TextProps) {
   const { style, ...otherProps } = props;
   const color = useColor('text');
 

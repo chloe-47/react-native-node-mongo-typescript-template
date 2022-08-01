@@ -4,12 +4,12 @@ import { StyleSheet } from 'react-native';
 import { Button, Paragraph } from 'react-native-paper';
 import { ScrollableScreen } from 'src/client/components/scrollable_screen/ScrollableScreen';
 import { scrollableScreenElement } from 'src/client/components/scrollable_screen/scrollableScreenElement';
-import TextInput, { TextInputHandles } from 'src/client/components/TextInput';
-import View from 'src/client/components/ViewWithBackground';
+import { TextInput, TextInputHandles } from 'src/client/components/TextInput';
+import { ViewWithBackground } from 'src/client/components/ViewWithBackground';
 import { ErrorNotice } from 'src/client/error/ErrorNotice';
 import { RootStackScreenProps } from 'src/client/navigation/NavigationTypes';
 import { useHandleViewer } from 'src/client/viewer';
-import PasswordResetLinkDetails from './PasswordResetLinkDetails';
+import { PasswordResetLinkDetails } from './PasswordResetLinkDetails';
 import {
   ResetPasswordLinkDetailsQuery,
   ResetPasswordLinkDetailsQueryVariables,
@@ -19,7 +19,7 @@ import {
   ResetPasswordMutationVariables,
 } from './__generated__/ResetPasswordMutation';
 
-export default function ResetPasswordScreen(
+export function ResetPasswordScreen(
   props: RootStackScreenProps<'ResetPassword'>,
 ) {
   const { navigation } = props;
@@ -65,19 +65,19 @@ export default function ResetPasswordScreen(
         scrollableScreenElement({
           key: 'link-details',
           render: () => (
-            <View style={styles.element}>
+            <ViewWithBackground style={styles.element}>
               <PasswordResetLinkDetails
                 details={data?.resetPasswordLinkDetails}
                 error={detailsError}
                 loading={detailsLoading}
               />
-            </View>
+            </ViewWithBackground>
           ),
         }),
         scrollableScreenElement({
           key: 'password',
           render: () => (
-            <View style={styles.element}>
+            <ViewWithBackground style={styles.element}>
               <TextInput
                 autoComplete="password"
                 autoFocus={true}
@@ -94,13 +94,13 @@ export default function ResetPasswordScreen(
                 }
                 value={password}
               />
-            </View>
+            </ViewWithBackground>
           ),
         }),
         scrollableScreenElement({
           key: 'confirmPassword',
           render: () => (
-            <View style={styles.element}>
+            <ViewWithBackground style={styles.element}>
               <TextInput
                 autoComplete="password"
                 autoFocus={false}
@@ -119,13 +119,13 @@ export default function ResetPasswordScreen(
                 }
                 value={confirmPassword}
               />
-            </View>
+            </ViewWithBackground>
           ),
         }),
         scrollableScreenElement({
           key: 'save-new-password-button',
           render: () => (
-            <View style={[styles.element, styles.button]}>
+            <ViewWithBackground style={[styles.element, styles.button]}>
               <Button
                 disabled={!areInputsValid}
                 loading={resetLoading}
@@ -135,13 +135,13 @@ export default function ResetPasswordScreen(
                 Save New Password
               </Button>
               <Paragraph>{hints}</Paragraph>
-            </View>
+            </ViewWithBackground>
           ),
         }),
         scrollableScreenElement({
           key: 'reset-error',
           render: () => (
-            <View style={styles.element}>
+            <ViewWithBackground style={styles.element}>
               <ErrorNotice
                 error={resetError}
                 manualChange={
@@ -150,7 +150,7 @@ export default function ResetPasswordScreen(
                 }
                 whenTryingToDoWhat="send you a password reset email"
               />
-            </View>
+            </ViewWithBackground>
           ),
         }),
       ]}

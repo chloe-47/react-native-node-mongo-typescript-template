@@ -4,7 +4,7 @@ import { useColor } from 'src/client/colors';
 
 export type ViewProps = ReactNativeView['props'];
 
-export default function ViewWithBackground(props: ViewProps) {
+export function ViewWithBackground(props: ViewProps) {
   const { style, ...otherProps } = props;
   const backgroundColor = useColor('background');
 

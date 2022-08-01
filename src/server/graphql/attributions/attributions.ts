@@ -9,12 +9,12 @@ const AttributionGraphQLType = schemaComposer.createObjectTC<Attribution>({
   name: 'Attribution',
 });
 
-type Attribution = {
+type Attribution = Readonly<{
   icon: string;
   text: string;
-};
+}>;
 
-function attributionsResolver(): Array<Attribution> {
+function attributionsResolver(): ReadonlyArray<Attribution> {
   return config;
 }
 

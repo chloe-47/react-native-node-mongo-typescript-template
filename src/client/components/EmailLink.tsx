@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Linking, Text } from 'react-native';
 import { useColor } from 'src/client/colors';
 import { createEmailLink, Props } from 'src/client/email_link/createEmailLink';
-import getEmailAddress from 'src/shared/urls/getEmailAddress';
+import { getEmailAddress } from 'src/shared/urls/getEmailAddress';
 
 export function EmailLink(props: Props): JSX.Element {
   const linkColor = useColor({

@@ -5,11 +5,11 @@ import { AppRegistry } from 'react-native';
 import { Provider as PaperProvider } from 'react-native-paper';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { useColorScheme } from 'src/client/colors';
-import LoadingScreen from 'src/client/components/LoadingScreen';
-import ErrorBoundary from 'src/client/error/ErrorBoundary';
-import initErrorLogging from 'src/client/error/initErrorLogging';
+import { LoadingScreen } from 'src/client/components/LoadingScreen';
+import { ErrorBoundary } from 'src/client/error/ErrorBoundary';
+import { initErrorLogging } from 'src/client/error/initErrorLogging';
 import { graphqlClient } from 'src/client/graphql/graphqlClient';
-import RootLevelComponents from 'src/client/root/RootLevelComponents';
+import { RootLevelComponents } from 'src/client/root/RootLevelComponents';
 import { RootNavigation } from 'src/client/root/RootNavigation';
 import { useLoadPrerenderDependencies } from 'src/client/root/useLoadPrerenderDependencies';
 import {
@@ -19,7 +19,7 @@ import {
 
 initErrorLogging();
 
-export default function App() {
+export function App() {
   const isLoadingComplete = useLoadPrerenderDependencies();
   const colorScheme = useColorScheme();
   const paperTheme = colorScheme === 'dark' ? DARK_THEME : LIGHT_THEME;

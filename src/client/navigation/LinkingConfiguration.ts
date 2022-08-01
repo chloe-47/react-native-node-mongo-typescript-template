@@ -3,7 +3,7 @@ import * as Linking from 'expo-linking';
 import { PASSWORD_RESET_PATH } from 'src/shared/urls/PASSWORD_RESET_PATH';
 import { RootStackParamList } from './NavigationTypes';
 
-const linking: LinkingOptions<RootStackParamList> = {
+export const LinkingConfiguration: LinkingOptions<RootStackParamList> = {
   config: {
     screens: {
       ['Create Account']: 'create_account',
@@ -29,5 +29,3 @@ const linking: LinkingOptions<RootStackParamList> = {
   },
   prefixes: [Linking.createURL('/')],
 };
-
-export default linking;

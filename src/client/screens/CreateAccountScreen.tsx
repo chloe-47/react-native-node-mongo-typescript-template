@@ -5,8 +5,8 @@ import { StyleSheet } from 'react-native';
 import { Button, Paragraph } from 'react-native-paper';
 import { ScrollableScreen } from 'src/client/components/scrollable_screen/ScrollableScreen';
 import { scrollableScreenElement } from 'src/client/components/scrollable_screen/scrollableScreenElement';
-import TextInput, { TextInputHandles } from 'src/client/components/TextInput';
-import View from 'src/client/components/ViewWithBackground';
+import { TextInput, TextInputHandles } from 'src/client/components/TextInput';
+import { ViewWithBackground } from 'src/client/components/ViewWithBackground';
 import { useCreateCrumbtrailsToLandingScreenIfNeeded } from 'src/client/navigation/helpers/useCreateCrumbtrailsToLandingScreenIfNeeded';
 import { RootStackScreenProps } from 'src/client/navigation/NavigationTypes';
 import { reloadViewer, useHandleViewer } from 'src/client/viewer';
@@ -111,7 +111,7 @@ export function CreateAccountScreen(
         scrollableScreenElement({
           key: 'create-account-button',
           render: () => (
-            <View style={styles.button}>
+            <ViewWithBackground style={styles.button}>
               <Button
                 disabled={!areInputsValid}
                 loading={loading}
@@ -121,7 +121,7 @@ export function CreateAccountScreen(
                 Create Account
               </Button>
               <Paragraph>{hints}</Paragraph>
-            </View>
+            </ViewWithBackground>
           ),
         }),
         scrollableScreenElement({

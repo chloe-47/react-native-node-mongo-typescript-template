@@ -4,7 +4,7 @@ dotenv.config();
 
 const env: NodeJS.ProcessEnv = process.env;
 
-type Options = { throwIfNotFound: true } | { defaultValue: string };
+type Options = Readonly<{ throwIfNotFound: true } | { defaultValue: string }>;
 
 export function envGet(
   environmentVariableName: string,

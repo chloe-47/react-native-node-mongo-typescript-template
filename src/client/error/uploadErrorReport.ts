@@ -5,11 +5,11 @@ import {
   CreateErrorReportMutationVariables,
 } from './__generated__/CreateErrorReportMutation';
 
-type Result = {
+type Result = Readonly<{
   uploadedSuccessfully: boolean;
   value: string;
   minifiedValue: string | undefined;
-};
+}>;
 
 export async function uploadErrorReport(
   rawErrorReport: string,

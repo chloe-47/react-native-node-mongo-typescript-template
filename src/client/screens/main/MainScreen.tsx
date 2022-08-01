@@ -1,7 +1,7 @@
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import * as React from 'react';
 import { useColor } from 'src/client/colors';
-import Icon from 'src/client/components/Icon';
+import { Icon } from 'src/client/components/Icon';
 import {
   RootTabParamList,
   RootTabScreenProps,
@@ -11,7 +11,7 @@ import { MenuTabStackContainer } from 'src/client/screens/menu/MenuTabStackConta
 
 const BottomTab = createMaterialBottomTabNavigator<RootTabParamList>();
 
-export default function MainScreen(): React.ReactElement {
+export function MainScreen(): React.ReactElement {
   const tabIconSelectedColor = useColor('tabIconSelected');
   const tabIconDefaultColor = useColor('tabIconDefault');
   const tabBarBackground = useColor('tabBarBackground');

@@ -1,4 +1,4 @@
-import setTimeoutSafe from './setTimeoutSafe';
+import { setTimeoutSafe } from 'src/server/setTimeoutSafe';
 
 export async function wait(
   { ms }: { ms: number },

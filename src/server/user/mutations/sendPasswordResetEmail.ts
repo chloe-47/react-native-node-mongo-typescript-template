@@ -1,6 +1,6 @@
 import { encrypt } from 'src/server/crypto/encryption';
-import sendEmail from 'src/server/email/sendEmail';
-import passwordResetUrl from 'src/server/urls/passwordResetUrl';
+import { sendEmail } from 'src/server/email/sendEmail';
+import { passwordResetUrl } from 'src/server/urls/passwordResetUrl';
 import { UserModel } from 'src/server/user/UserModel';
 import { wait } from 'src/server/wait';
 

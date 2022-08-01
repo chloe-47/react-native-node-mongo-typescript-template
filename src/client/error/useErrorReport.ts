@@ -5,7 +5,7 @@ import { useEncodedViewerForErrorReporting } from 'src/client/viewer';
 import { flatten } from 'src/shared/utils/flatten';
 import { uniques } from 'src/shared/utils/uniques';
 
-export default function useErrorReport(arg: ApolloError | ApolloError[]): {
+export function useErrorReport(arg: ApolloError | ApolloError[]): {
   errorMessage: string;
   rawDebugInfo: string;
 } {
@@ -39,11 +39,11 @@ export default function useErrorReport(arg: ApolloError | ApolloError[]): {
   };
 }
 
-type ParsedErrorData = {
+type ParsedErrorData = Readonly<{
   errorMessage: string;
   properties?: Record<string, string> | undefined;
   file?: string | undefined;
-};
+}>;
 
 function getErrorMessage(error: ApolloError): ParsedErrorData[] {
   try {

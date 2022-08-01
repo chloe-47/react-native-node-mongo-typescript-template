@@ -1,8 +1,8 @@
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import * as React from 'react';
-import LoadingScreen from 'src/client/components/LoadingScreen';
-import View from 'src/client/components/ViewWithBackground';
+import { LoadingScreen } from 'src/client/components/LoadingScreen';
+import { ViewWithBackground } from 'src/client/components/ViewWithBackground';
 import { RootStackParamList } from 'src/client/navigation/NavigationTypes';
 import { ChildrenPropsType } from 'src/client/utils/ChildrenPropsType';
 import {
@@ -28,7 +28,7 @@ export function RequireLoggedInScreen({
   }
   if (isLoggedOut) {
     // useHandleViewer (above) will push NotLoggedInScreen
-    return <View />;
+    return <ViewWithBackground />;
   }
   return <>{children}</>;
 }

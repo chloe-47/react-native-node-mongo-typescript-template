@@ -1,11 +1,9 @@
 import { createStore } from 'src/client/store';
 
-export type ToastConfig = {
+export type ToastConfig = Readonly<{
   message: string;
   retry?: null | (() => unknown);
   undo?: null | (() => Promise<void>);
-};
+}>;
 
-const ToastStore = createStore<ToastConfig | undefined>(undefined);
-
-export default ToastStore;
+export const ToastStore = createStore<ToastConfig | undefined>(undefined);

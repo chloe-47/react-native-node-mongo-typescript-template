@@ -4,7 +4,7 @@ import { StyleSheet, View } from 'react-native';
 import { Button, ProgressBar } from 'react-native-paper';
 import { useColor } from 'src/client/colors';
 import { SuccessNotice } from 'src/client/components/SuccessNotice';
-import Text from 'src/client/components/Text';
+import { Text } from 'src/client/components/Text';
 import { ErrorNotice } from 'src/client/error/ErrorNotice';
 import { SEND_PASSWORD_RESET_EMAIL_MUTATION } from 'src/client/screens/LoginScreen';
 import {
@@ -13,20 +13,16 @@ import {
 } from 'src/client/screens/__generated__/SendPasswordResetEmail';
 import { ResetPasswordLinkDetailsQuery_resetPasswordLinkDetails } from './__generated__/ResetPasswordLinkDetailsQuery';
 
-type Props = {
+type Props = Readonly<{
   details:
     | ResetPasswordLinkDetailsQuery_resetPasswordLinkDetails
     | null
     | undefined;
   loading: boolean;
   error: ApolloError | undefined;
-};
+}>;
 
-export default function PasswordResetLinkDetails({
-  details,
-  error,
-  loading,
-}: Props) {
+export function PasswordResetLinkDetails({ details, error, loading }: Props) {
   const errorColor = useColor('errorButtonBackground');
   const [
     runSendPasswordResetEmailMutation,

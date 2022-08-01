@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { StyleSheet } from 'react-native';
 import { useColor } from 'src/client/colors';
-import Text from 'src/client/components/Text';
-import View from 'src/client/components/ViewWithBackground';
+import { Text } from 'src/client/components/Text';
+import { ViewWithBackground } from 'src/client/components/ViewWithBackground';
 
-type Props = {
+type Props = Readonly<{
   text: string | undefined;
-};
+}>;
 
 export function SuccessNotice({ text }: Props) {
   if (text == null) {
@@ -14,9 +14,9 @@ export function SuccessNotice({ text }: Props) {
   }
   const backgroundColor = useColor('successNotice');
   return (
-    <View style={[styles.container, { backgroundColor }]}>
+    <ViewWithBackground style={[styles.container, { backgroundColor }]}>
       <Text>{text}</Text>
-    </View>
+    </ViewWithBackground>
   );
 }
 

@@ -1,4 +1,4 @@
-export default function initPeriodicChecks(): void {
+export function initPeriodicChecks(): void {
   setTimeout(() => {
     try {
       // TODO: implement periodic checks

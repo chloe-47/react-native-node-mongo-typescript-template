@@ -5,13 +5,11 @@ Error.stackTraceLimit = Infinity;
 import debugModule from 'debug';
 import http from 'http';
 import httpProxy from 'http-proxy';
-import environmentIsUsingHotReloading from 'src/server/env/environmentIsUsingHotReloading';
+import { ENV_USE_HOT_RELOADING } from 'src/server/env/ENV_USE_HOT_RELOADING';
+import { PORT } from 'src/server/env/PORT';
 import { createExpressApp } from 'src/server/root/createExpressApp';
-import { envGet } from 'src/shared/env';
 
-const PORT = envGet('PORT', { defaultValue: '3333' });
-
-export function init(): void {
+export function initWebRequestListener(): void {
   const debug = debugModule('server');
   const port = normalizePort(PORT);
 
@@ -20,7 +18,7 @@ export function init(): void {
 
   const server = http.createServer(express_app);
 
-  if (environmentIsUsingHotReloading()) {
+  if (ENV_USE_HOT_RELOADING) {
     debug(
       'Hot reloading is on. Make sure you have `yarn dev:client` running in another shell if you want to use the web client',
     );

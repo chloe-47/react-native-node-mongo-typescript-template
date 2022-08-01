@@ -6,7 +6,7 @@ import {
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { TOKEN_URL_PARAM } from 'src/shared/urls/TOKEN_URL_PARAM';
 
-export type RootStackParamList = {
+export type RootStackParamList = Readonly<{
   Main: NavigatorScreenParams<RootTabParamList> | undefined;
   NotLoggedIn: NavigatorScreenParams<RootTabParamList> | undefined;
   ['Create Account']: NavigatorScreenParams<RootTabParamList> | undefined;
@@ -17,26 +17,26 @@ export type RootStackParamList = {
   Modal: NavigatorScreenParams<RootTabParamList> | undefined;
   NotFound: NavigatorScreenParams<RootTabParamList> | undefined;
   ['Create Note']: NavigatorScreenParams<RootTabParamList> | undefined;
-};
+}>;
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =
   NativeStackScreenProps<RootStackParamList, Screen>;
 
-export type HomeStackParamList = {
+export type HomeStackParamList = Readonly<{
   Home: Record<never, never>;
-};
+}>;
 
 export type HomeStackScreenProps<Screen extends keyof HomeStackParamList> =
   NativeStackScreenProps<HomeStackParamList, Screen>;
 
-export type MenuStackParamList = {
+export type MenuStackParamList = Readonly<{
   Menu: NavigatorScreenParams<RootTabParamList> | undefined;
-};
+}>;
 
-export type RootTabParamList = {
+export type RootTabParamList = Readonly<{
   HomeTabStackContainer: undefined;
   MenuTabStackContainer: undefined;
-};
+}>;
 
 export type RootTabScreenProps<Screen extends keyof RootTabParamList> =
   CompositeScreenProps<

@@ -3,16 +3,16 @@ import * as React from 'react';
 import { Linking, StyleSheet } from 'react-native';
 import { TouchableRipple } from 'react-native-paper';
 import { useColor } from 'src/client/colors';
-import Text from 'src/client/components/Text';
-import View from 'src/client/components/ViewWithBackground';
+import { Text } from 'src/client/components/Text';
+import { ViewWithBackground } from 'src/client/components/ViewWithBackground';
 import { createEmailLink } from 'src/client/email_link/createEmailLink';
 import { useMaybeMinifiedErrorReport } from 'src/client/error/useMaybeMinifiedErrorReport';
 
-type Props = {
+type Props = Readonly<{
   error: ApolloError | undefined;
   manualChange?: string;
   whenTryingToDoWhat: string;
-};
+}>;
 
 export function ErrorNotice({
   error,
@@ -33,7 +33,7 @@ export function ErrorNotice({
   });
   const { errorMessage, debugInfo } = useMaybeMinifiedErrorReport(error);
   return (
-    <View
+    <ViewWithBackground
       style={[
         styles.container,
         {
@@ -75,7 +75,7 @@ export function ErrorNotice({
           }.`}
         </Text>
       </TouchableRipple>
-    </View>
+    </ViewWithBackground>
   );
 }
 

@@ -2,7 +2,7 @@ import sendgridMail from '@sendgrid/mail';
 import { analytics } from 'src/server/analytics';
 import { EmailTemplateType } from 'src/server/email/EmailTemplateTypes';
 import { envGet } from 'src/shared/env';
-import getEmailAddress from 'src/shared/urls/getEmailAddress';
+import { getEmailAddress } from 'src/shared/urls/getEmailAddress';
 
 const SENDGRID_API_KEY = envGet('SENDGRID_API_KEY', { throwIfNotFound: true });
 
@@ -13,7 +13,7 @@ type Args = EmailTemplateType & {
   fromEmailUser: string;
 };
 
-export default async function sendEmail({
+export async function sendEmail({
   templateID,
   templateProps,
   recipient,

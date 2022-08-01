@@ -12,15 +12,15 @@ const ResetPasswordLinkDetailsGraphQLType =
     name: 'ResetPasswordLinkDetails',
   });
 
-type ResetPasswordLinkDetails = {
+type ResetPasswordLinkDetails = Readonly<{
   expiration_time: Date;
   is_valid: boolean;
   emailAddress: string;
-};
+}>;
 
-type Args = {
+type Args = Readonly<{
   token: string;
-};
+}>;
 
 async function resetPasswordLinkDetailsResolver(
   _: unknown,

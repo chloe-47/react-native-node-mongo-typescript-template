@@ -1,10 +1,10 @@
 import * as React from 'react';
 import type { SectionRendererData } from 'src/client/components/scrollable_screen/ScrollableScreen';
 
-type Props = {
+type Props = Readonly<{
   render: () => React.ReactElement;
   key: string;
-};
+}>;
 
 export function scrollableScreenElement({
   render,

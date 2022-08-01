@@ -3,7 +3,7 @@ import type {
   Listener,
 } from 'src/client/event_stream/EventStreamType';
 
-export default function createEventStream<T>(): EventStream<T> {
+export function createEventStream<T>(): EventStream<T> {
   const listeners: Set<Listener<T>> = new Set();
 
   return {

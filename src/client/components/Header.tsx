@@ -1,13 +1,10 @@
 import * as React from 'react';
 import { Appbar } from 'react-native-paper';
 import { useColor } from 'src/client/colors';
-import useViewWidth from 'src/client/components/useViewWidth';
+import { useViewWidth } from 'src/client/components/useViewWidth';
+import { ChildrenPropsType } from 'src/client/utils/ChildrenPropsType';
 
-type Props = {
-  children: React.ReactElement | React.ReactElement[];
-};
-
-export default function Header({ children }: Props): JSX.Element {
+export function Header({ children }: ChildrenPropsType): JSX.Element {
   const viewWidth = useViewWidth();
   const borderBottomColor = useColor('divider');
   const backgroundColor = useColor('background');

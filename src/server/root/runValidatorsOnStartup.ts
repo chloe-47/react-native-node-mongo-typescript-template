@@ -1,4 +1,4 @@
-export default function runValidatorsOnStartup(): void {
+export function runValidatorsOnStartup(): void {
   // Examples
   // AidRequestNotificationsConfig.validate();
   // validateEmailTemplateIDs();

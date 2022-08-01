@@ -1,8 +1,8 @@
-import initErrorLogging from 'src/client/error/initErrorLogging';
+import { initErrorLogging } from 'src/client/error/initErrorLogging';
 
 initErrorLogging();
 
-export default function ErrorBoundary({
+export function ErrorBoundary({
   children,
 }: {
   children: JSX.Element;

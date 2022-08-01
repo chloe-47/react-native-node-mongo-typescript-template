@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
-import Text from 'src/client/components/Text';
-import View from 'src/client/components/ViewWithBackground';
+import { Text } from 'src/client/components/Text';
+import { ViewWithBackground } from 'src/client/components/ViewWithBackground';
 import { RootStackScreenProps } from 'src/client/navigation/NavigationTypes';
 
 export function NotFoundScreen({
@@ -11,7 +11,7 @@ export function NotFoundScreen({
     navigation.replace('Main');
   }, []);
   return (
-    <View style={styles.container}>
+    <ViewWithBackground style={styles.container}>
       <Text style={styles.title}>This screen doesn't exist.</Text>
       <TouchableOpacity
         onPress={() => navigation.replace('Main')}
@@ -19,7 +19,7 @@ export function NotFoundScreen({
       >
         <Text style={styles.linkText}>Go to home screen</Text>
       </TouchableOpacity>
-    </View>
+    </ViewWithBackground>
   );
 }
 

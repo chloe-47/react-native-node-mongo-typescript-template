@@ -5,10 +5,10 @@ import express from 'express';
 import proxy from 'express-http-proxy';
 import logger from 'morgan';
 import path from 'path';
-import environmentIsUsingHotReloading from 'src/server/env/environmentIsUsingHotReloading';
 import { initGraphQL } from 'src/server/graphql/GraphQLSchema';
 import { initMongoClient } from 'src/server/mongo/client';
 import { initUserModels } from 'src/server/user/UserModel';
+import { ENV_USE_HOT_RELOADING } from '../env/ENV_USE_HOT_RELOADING';
 
 export function createExpressApp(): ReturnType<typeof express> {
   // Since we're under src/server/root/createExpressApp.ts,
@@ -32,7 +32,7 @@ export function createExpressApp(): ReturnType<typeof express> {
 
   app.use(express.static(path.join(rootDirectory, 'assets')));
 
-  if (environmentIsUsingHotReloading()) {
+  if (ENV_USE_HOT_RELOADING) {
     app.use(proxy('localhost:19006'));
   } else {
     app.use(express.static(path.join(rootDirectory, 'web-build')));

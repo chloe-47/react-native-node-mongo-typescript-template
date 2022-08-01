@@ -1,8 +1,8 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as React from 'react';
 import { Appbar } from 'react-native-paper';
-import Header from 'src/client/components/Header';
-import StackNavigatorInsideTabNavigator from 'src/client/navigation/helpers/StackNavigatorInsideTabNavigator';
+import { Header } from 'src/client/components/Header';
+import { StackNavigatorInsideTabNavigator } from 'src/client/navigation/helpers/StackNavigatorInsideTabNavigator';
 import {
   MenuStackParamList,
   RootTabScreenProps,

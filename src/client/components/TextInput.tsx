@@ -6,7 +6,7 @@ export type TextInputHandles = Pick<NativeTextInput, 'focus'> & {
   setValue: (value: string) => void;
 };
 
-type Props = {
+type Props = Readonly<{
   autoComplete: 'email' | 'password' | 'off';
   autoFocus: boolean;
   disabled?: boolean;
@@ -17,9 +17,9 @@ type Props = {
   setFocused?: (value: boolean) => void;
   setValue: (value: string) => void;
   value: string;
-};
+}>;
 
-const TextInput = React.forwardRef<TextInputHandles, Props>(
+export const TextInput = React.forwardRef<TextInputHandles, Props>(
   (
     {
       autoComplete,
@@ -73,8 +73,6 @@ const TextInput = React.forwardRef<TextInputHandles, Props>(
     );
   },
 );
-
-export default TextInput;
 
 const styles = StyleSheet.create({
   topSpacer: {
