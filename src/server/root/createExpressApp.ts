@@ -5,15 +5,15 @@ import express from 'express';
 import proxy from 'express-http-proxy';
 import logger from 'morgan';
 import path from 'path';
-import { initUserModels } from 'src/server/user/UserModel';
-import { initGraphQL } from 'src/server/graphql/GraphQLSchema';
 import environmentIsUsingHotReloading from 'src/server/env/environmentIsUsingHotReloading';
+import { initGraphQL } from 'src/server/graphql/GraphQLSchema';
 import { initMongoClient } from 'src/server/mongo/client';
+import { initUserModels } from 'src/server/user/UserModel';
 
 export function createExpressApp(): ReturnType<typeof express> {
   // Since we're under src/server/root/createExpressApp.ts,
-  // we need to go up 4 directories to get to the root directory.
-  const rootDirectory = path.normalize(path.join(__dirname, '../../../..'));
+  // we need to go up 3 directories to get to the root directory.
+  const rootDirectory = path.normalize(path.join(__dirname, '../../..'));
 
   const app = express();
 
